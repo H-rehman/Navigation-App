@@ -1,0 +1,591 @@
+/* ======================================================
+   DRIVER ADVISORY SYSTEM - STYLES
+   Hafsa Rehman (2023-ag-9950)
+   
+   I'm not great at CSS so this might be messy
+   But it works!
+   ====================================================== */
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ecf0f1;
+    overflow: hidden;
+}
+
+/* ==================== HEADER ==================== */
+
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ==================== MAP ==================== */
+
+#map {
+    height: calc(100vh - 60px);
+    width: 100%;
+    z-index: 1;
+}
+
+/* ==================== CONTROL PANEL ==================== */
+
+.control-panel {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    width: 300px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.95);
+}
+
+.control-panel h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+.control-panel input,
+.control-panel select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.control-panel button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background: #3498db;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.control-panel button:hover {
+    background: #2980b9;
+}
+
+/* ==================== NAV CARD ==================== */
+
+.nav-card {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    width: 200px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.95);
+}
+
+.nav-card .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 14px;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 5px;
+}
+
+.nav-card div {
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+/* ==================== REPORT BUTTON ==================== */
+
+.report-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #e74c3c;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border: 2px solid white;
+}
+
+.report-btn:hover {
+    background: #c0392b;
+}
+
+/* ==================== REPORT MENU ==================== */
+
+.report-menu {
+    position: absolute;
+    bottom: 100px;
+    right: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: none;
+    width: 220px;
+    z-index: 1000;
+}
+
+.report-menu h4 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.report-menu select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+}
+
+.report-menu button {
+    width: 100%;
+    padding: 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ==================== EMERGENCY STOP ==================== */
+
+#emergencyStop {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 5000;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border: 2px solid white;
+    display: none;
+}
+
+#emergencyStop:hover {
+    background: #c0392b;
+}
+
+/* ==================== VOICE BUTTON ==================== */
+
+#voiceBtn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    background: #3498db;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border: 2px solid white;
+}
+
+#voiceBtn:hover {
+    background: #2980b9;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); background: #e74c3c; }
+    100% { transform: scale(1); }
+}
+
+/* ==================== SPEED INDICATOR ==================== */
+
+#speedTag {
+    position: absolute;
+    bottom: -8px;
+    background: #2c3e50;
+    color: white;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* ==================== DARK MODE ==================== */
+
+.darkMode .control-panel,
+.darkMode .nav-card,
+.darkMode .report-menu {
+    background: #2c3e50;
+    color: white;
+}
+
+.darkMode .control-panel h3,
+.darkMode .nav-card .title {
+    color: white;
+    border-bottom-color: #34495e;
+}
+
+.darkMode input,
+.darkMode select {
+    background: #34495e;
+    border-color: #2c3e50;
+    color: white;
+}
+
+/* ==================== ROUTE INFO ==================== */
+
+.route-info {
+    margin: 10px 0;
+    padding: 10px;
+    background: #ecf0f1;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+/* ==================== WAKE INDICATOR ==================== */
+
+.wakeIndicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 24px;
+    z-index: 10000;
+    border: 3px solid #3498db;
+    animation: pulse 2s infinite;
+    text-align: center;
+}
+
+/* ==================== PHONE STYLES ==================== */
+
+@media (max-width: 768px) {
+    .control-panel {
+        top: 70px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+    }
+    
+    .nav-card {
+        top: 70px;
+        right: 10px;
+        width: 150px;
+    }
+    
+    #voiceBtn,
+    .report-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .wakeIndicator {
+        font-size: 18px;
+        padding: 15px 30px;
+    }
+}
+
+/* ==================== MISC ==================== */
+
+hr {
+    border: none;
+    border-top: 1px solid #ecf0f1;
+    margin: 15px 0;
+}
+
+.small {
+    font-size: 11px;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ==================== ROTATING ARROW ==================== */
+
+.user-arrow .arrow-container {
+    width: 50px;
+    height: 50px;
+    background: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transform-origin: center;
+    transition: transform 0.1s ease;
+}
+
+.user-arrow svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+}
+
+.user-arrow .speed-tag {
+    position: absolute;
+    bottom: -8px;
+    background: #2c3e50;
+    color: white;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Speed tag colors */
+.speed-tag.speed-0 { background: #3498db; }      /* Blue - stopped */
+.speed-tag.speed-normal { background: #27ae60; }  /* Green - normal */
+.speed-tag.speed-fast { background: #f39c12; }    /* Orange - fast */
+.speed-tag.speed-speeding { background: #e74c3c; } /* Red - speeding */
+
+/* ==================== HAZARD MARKERS ==================== */
+
+.hazard-marker.offline {
+    stroke-dasharray: 10, 5;  /* Dashed border for offline */
+}
+
+/* Marker colors by type */
+.marker-accident { fill: #c0392b; stroke: #c0392b; }
+.marker-police { fill: #8e44ad; stroke: #8e44ad; }
+.marker-work { fill: #e67e22; stroke: #e67e22; }
+.marker-block { fill: #e74c3c; stroke: #e74c3c; }
+
+/* Popup styles */
+.hazard-popup {
+    font-family: Arial, sans-serif;
+    min-width: 180px;
+}
+
+.hazard-popup .popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.hazard-popup .status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.status-badge.online {
+    background: #27ae60;
+    color: white;
+}
+
+.status-badge.offline {
+    background: #f39c12;
+    color: white;
+}
+
+.popup-time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+}
+
+/* ==================== WAKE WORD INDICATOR ==================== */
+
+.wake-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 24px;
+    z-index: 10000;
+    border: 3px solid #3498db;
+    animation: pulse 2s infinite;
+    text-align: center;
+    pointer-events: none;
+}
+
+.wake-badge {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3498db;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 10000;
+    border: 1px solid white;
+}
+
+/* ==================== NOTIFICATIONS ==================== */
+
+.notification {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 20000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 2px solid white;
+    animation: slideDown 0.3s;
+}
+
+.notification.success {
+    background: #27ae60;
+}
+
+.notification.offline {
+    background: #f39c12;
+}
+
+.notification.error {
+    background: #e74c3c;
+}
+
+/* ==================== EMERGENCY STOP BUTTON ==================== */
+
+.emergency-stop {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 5000;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border: 2px solid white;
+    display: none;
+}
+
+.emergency-stop:hover {
+    background: #c0392b;
+}
+
+/* ==================== VOICE BUTTON ==================== */
+
+.voice-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 70px;
+    height: 70px;
+    background: #3498db;
+    border-radius: 50%;
+    color: white;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border: 3px solid white;
+    transition: all 0.2s;
+}
+
+.voice-btn:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.voice-btn.listening {
+    background: #e74c3c;
+    animation: pulse 1.5s infinite;
+}
+
+/* ==================== OFFLINE BANNER ==================== */
+
+.offline-banner {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #f39c12;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+    z-index: 10000;
+    display: none;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); background: #e74c3c; }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

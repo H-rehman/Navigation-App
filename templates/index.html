@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Driver Advisory System </title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    
+    <!-- My styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        🚗 Driver Advisory System 
+    </div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <h3>📍 Plan Route</h3>
+        
+        <input type="text" id="startLoc" placeholder="Start (e.g., Lahore or 'current')" value="Lahore">
+        <input type="text" id="endLoc" placeholder="Destination" value="Islamabad">
+        
+        <button onclick="startPlanning()">Show Route</button>
+        
+        <div class="route-info" id="routeInfo"></div>
+        <div class="route-info" id="planStatus"></div>
+        
+        <button id="startJourneyBtn" style="display:none; background:#27ae60;" onclick="startDriving()">
+            Start Journey
+        </button>
+        
+        <hr>
+        
+        <h3>🚘 Drive Mode</h3>
+        <button onclick="startDriving()">Start Driving</button>
+        
+        <div class="small">
+            ⚠️ Say "Hey Report" to report hazards
+        </div>
+    </div>
+   
+
+    <!-- Navigation Card -->
+    <div class="nav-card">
+        <div class="title">Navigation Status</div>
+        <div id="navDist">Distance: --</div>
+        <div id="navETA">ETA: --</div>
+    </div>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Report Button -->
+    <div class="report-btn" onclick="toggleReportMenu()">⚠️</div>
+
+    <!-- Report Menu -->
+    <div class="report-menu" id="reportMenu">
+        <h4>Report Hazard</h4>
+        <select id="reportType">
+            <option value="">Select...</option>
+            <option value="Traffic block">🚦 Traffic Block</option>
+            <option value="Accident">💥 Accident</option>
+            <option value="Police checkpoint">👮 Police</option>
+            <option value="Road work">🚧 Road Work</option>
+        </select>
+        <button onclick="sendManualReport()">Send Report</button>
+        <div class="small">Or use voice button 🎤</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script>
+        // Simple function to start planning
+        function startPlanning() {
+            document.getElementById("startJourneyBtn").style.display = "none";
+            document.getElementById("routeInfo").innerHTML = "Calculating...";
+            setTimeout(() => map.invalidateSize(), 200);
+            planRoute();
+        }
+    </script>
+
+    <!-- Phone fix -->
+    <script>
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            document.getElementById('map').style.height = (window.innerHeight - 60) + 'px';
+            
+            window.addEventListener('resize', () => {
+                document.getElementById('map').style.height = (window.innerHeight - 60) + 'px';
+                map.invalidateSize();
+            });
+        }
+    </script>
+
+</body>
+</html>
